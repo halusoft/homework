@@ -1,0 +1,71 @@
+
+<div class="root-container">
+    <div class="root-control">
+        <div class="root-title">Homework<button mat-raised-button class="refresh-button" (click)="togglePanel()"><div class="material-icons">more_horiz</div></button></div>
+    </div>
+    <div class="sign-control" *ngIf="!hidePanel">
+        <mat-form-field *ngIf="!hidePanel">
+            <input matInput type="number" placeholder="Number of Questions" [(ngModel)]="numEquations">
+        </mat-form-field>
+        <button mat-raised-button class="refresh-button" (click)="refresh()">Refresh</button>
+    </div>
+    <div class="sign-control" *ngIf="!hidePanel">
+        <mat-form-field>
+            <input matInput type="number" placeholder="LHS Maximum Number" [(ngModel)]="addMaxLeft">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="LHS Minium Number" [(ngModel)]="addMinLeft">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="RHS Maximum Number" [(ngModel)]="addMaxRight">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="RHS Minium Number" [(ngModel)]="addMinRight">
+        </mat-form-field>
+        <mat-checkbox class="sign-checkbox" [(ngModel)]="hasAddition">Addition</mat-checkbox>
+    </div>
+    <div class="sign-control" *ngIf="!hidePanel">
+        <mat-form-field>
+            <input matInput type="number" placeholder="LHS Maximum Number" [(ngModel)]="subMaxLeft">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="LHS Minium Number" [(ngModel)]="subMinLeft">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="RHS Maximum Number" [(ngModel)]="subMaxRight">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="RHS Minium Number" [(ngModel)]="subMinRight">
+        </mat-form-field>
+        <mat-checkbox class="sign-checkbox" [(ngModel)]="hasSubtraction">Subtraction</mat-checkbox>
+    </div>
+    <div class="sign-control" *ngIf="!hidePanel">
+        <mat-form-field>
+            <input matInput type="number" placeholder="LHS Maximum Number" [(ngModel)]="mulMaxLeft">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="LHS Minium Number" [(ngModel)]="mulMinLeft">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="RHS Maximum Number" [(ngModel)]="mulMaxRight">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="RHS Minium Number" [(ngModel)]="mulMinRight">
+        </mat-form-field>
+        <mat-checkbox class="sign-checkbox" [(ngModel)]="hasMultiplication">Multiplication</mat-checkbox>
+        
+    </div>
+    <div class="equation-container">
+        <mat-card class="equation-item" *ngFor="let item of [].constructor(numEquations); index as i">
+            <mat-card-header>
+                <div class="equation-title">{{i+1}}.</div>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="equation">{{getEquation(i)}}</div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+
+

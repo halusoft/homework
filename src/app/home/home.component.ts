@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit {
     }
     else
     {
-      return signs[this.getNumber(i, 0, signs.length)];
+      return signs[this.getNumber(i, 0, signs.length-1)];
     }
   }
 
